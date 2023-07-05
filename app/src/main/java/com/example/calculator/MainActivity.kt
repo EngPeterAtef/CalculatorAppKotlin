@@ -1,21 +1,19 @@
 package com.example.calculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import net.objecthunter.exp4j.*
 
-class MainActivity : AppCompatActivity()
-{
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // get the buttons
         val tvOne = findViewById<TextView>(R.id.tvOne)
         val tvTwo = findViewById<TextView>(R.id.tvTwo)
-        val tvThree  = findViewById<TextView>(R.id.tvThree)
+        val tvThree = findViewById<TextView>(R.id.tvThree)
         val tvFour = findViewById<TextView>(R.id.tvFour)
         val tvFive = findViewById<TextView>(R.id.tvFive)
         val tvSix = findViewById<TextView>(R.id.tvSix)
@@ -34,74 +32,37 @@ class MainActivity : AppCompatActivity()
         val tvExpression = findViewById<TextView>(R.id.tvExpression)
         val tvResult = findViewById<TextView>(R.id.tvResult)
 
+        tvOne.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "1" }
 
-        tvOne.setOnClickListener {
+        tvTwo.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "2" }
 
-            tvExpression.text = tvExpression.text.toString() + "1"
-        }
+        tvThree.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "3" }
 
-        tvTwo.setOnClickListener {
+        tvFour.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "4" }
 
-            tvExpression.text = tvExpression.text.toString() + "2"
-        }
+        tvFive.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "5" }
 
-        tvThree.setOnClickListener {
+        tvSix.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "6" }
 
-            tvExpression.text = tvExpression.text.toString() + "3"
-        }
-        tvFour.setOnClickListener {
-       tvExpression.text = tvExpression.text.toString() + "4"
-        }
+        tvSeven.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "7" }
 
-        tvFive.setOnClickListener {
+        tvEight.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "8" }
 
-            tvExpression.text = tvExpression.text.toString() + "5"
-        }
+        tvNine.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "9" }
 
-        tvSix.setOnClickListener {
-
-            tvExpression.text = tvExpression.text.toString() + "6"
-        }
-
-        tvSeven.setOnClickListener {
-
-            tvExpression.text = tvExpression.text.toString() + "7"
-        }
-
-        tvEight.setOnClickListener {
-
-            tvExpression.text = tvExpression.text.toString() + "8"
-        }
-
-        tvNine.setOnClickListener {
-
-            tvExpression.text = tvExpression.text.toString() + "9"
-        }
-        tvZero.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "0"
-        }
+        tvZero.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "0" }
 
         /*Operators*/
 
-        tvPlus.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "+"
-        }
+        tvPlus.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "+" }
 
-        tvMinus.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "-"
-        }
+        tvMinus.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "-" }
 
-        tvMul.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "*"
-        }
+        tvMul.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "*" }
 
-        tvDivide.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "/"
-        }
+        tvDivide.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "/" }
 
-        tvDot.setOnClickListener {
-            tvExpression.text = tvExpression.text.toString() + "."
-        }
+        tvDot.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "." }
 
         tvClear.setOnClickListener {
             tvExpression.text = ""
@@ -123,7 +84,7 @@ class MainActivity : AppCompatActivity()
 
         tvBack.setOnClickListener {
             val text = tvExpression.text.toString()
-            if(text.isNotEmpty()) {
+            if (text.isNotEmpty()) {
                 var temp = text.reversed()
                 tvExpression.text = temp.drop(1).reversed()
             }
@@ -131,6 +92,4 @@ class MainActivity : AppCompatActivity()
             tvResult.text = ""
         }
     }
-
-
 }
