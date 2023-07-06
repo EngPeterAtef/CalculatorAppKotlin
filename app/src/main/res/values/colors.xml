@@ -9,4 +9,7 @@
     <color name = "equalButton">#FF0000</color>
     <color name="numberActionButton">#000000</color>
     <color name = "numberActionButton2">#373737</color>
+    <color name = "sideButtons">#FF9800</color>
+
+
 </resources>

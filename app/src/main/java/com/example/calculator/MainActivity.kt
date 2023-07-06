@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val tvBack = findViewById<TextView>(R.id.tvBack)
         val tvExpression = findViewById<TextView>(R.id.tvExpression)
         val tvResult = findViewById<TextView>(R.id.tvResult)
+        val tvRightBracket = findViewById<TextView>(R.id.tvRightBracket)
+        val tvLeftBracket = findViewById<TextView>(R.id.tvLeftBracket)
 
         tvOne.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "1" }
 
@@ -64,6 +66,10 @@ class MainActivity : AppCompatActivity() {
 
         tvDot.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "." }
 
+        tvRightBracket.setOnClickListener { tvExpression.text = tvExpression.text.toString() + ")" }
+
+        tvLeftBracket.setOnClickListener { tvExpression.text = tvExpression.text.toString() + "(" }
+
         tvClear.setOnClickListener {
             tvExpression.text = ""
             tvResult.text = ""
@@ -71,15 +77,22 @@ class MainActivity : AppCompatActivity() {
 
         tvEquals.setOnClickListener {
             val text = tvExpression.text.toString()
-            val expression = ExpressionBuilder(text).build()
+//            tyy and catch
+            try {
+                val expression = ExpressionBuilder(text).build()
 
-            val result = expression.evaluate()
-            val longResult = result.toLong()
-            if (result == longResult.toDouble()) {
-                tvResult.text = longResult.toString()
-            } else {
-                tvResult.text = result.toString()
+                val result = expression.evaluate()
+                val longResult = result.toLong()
+                if (result == longResult.toDouble()) {
+                    tvResult.text = " = ${longResult.toString()}"
+                } else {
+                    tvResult.text = " = ${result.toString()}"
+                }
+            } catch (e: Exception){
+                tvResult.text = "   Invalid Expression"
             }
+
+
         }
 
         tvBack.setOnClickListener {
